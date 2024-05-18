@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vxnsin/flag-list.git"
+    "url": "git+https://github.com/vxnsin/country-flag-utils.git"
   },
   "keywords": [
     "flag", "country", "utils", "flags", "countrys", "language", "multi-language"
@@ -13,9 +13,9 @@
   "author": "Vxnsin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vxnsin/flag-list/issues"
+    "url": "https://github.com/vxnsin/country-flag-utils/issues"
   },
-  "homepage": "https://github.com/vxnsin/flag-list#readme",
+  "homepage": "https://github.com/vxnsin/country-flag-utils#readme",
   "dependencies": {
     "fs": "^0.0.1-security",
     "path": "^0.12.7"
