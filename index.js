@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 /**
  * @typedef {Object} Language
- * @property {string} GERMAN - German
- * @property {string} ENGLISH - Englisch
+ * @property {string} GERMAN
+ * @property {string} ENGLISH 
  */
 const Language = {
     GERMAN: "de",
