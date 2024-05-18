@@ -1,22 +1,23 @@
 {
-  "name": "flag-list",
+  "name": "country-flag-utils",
   "version": "1.0.0",
-  "description": "Placeholder Text",
+  "description": "A NPM Package that allows you to get a list of all Flags in the World.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vxnsin/flag-list.git"
   },
   "keywords": [
-    "flag"
+    "flag", "country", "utils", "flags", "countrys", "language", "multi-language"
   ],
   "author": "Vxnsin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vxnsin/flag-list/issues"
   },
-  "homepage": "https://github.com/vxnsin/flag-list#readme"
+  "homepage": "https://github.com/vxnsin/flag-list#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
 }
