@@ -29,48 +29,122 @@ function loadCountries() {
     });
     return countries;
 }
+/**
+ * Returns a suggested country name based on a similar name.
+ * @param {string} countryIdentifier - The country identifier.
+ * @param {string} language - The language code for the language of the country (default to English).
+ * @returns {string|null} A suggested country name if a similar name is found, otherwise null.
+ */
+function suggestCountryName(countryIdentifier, language = DEFAULT_LANGUAGE) {
+    const normalizedIdentifier = countryIdentifier.trim().toLowerCase();
+
+    // Check if the identifier matches any known country names
+    const similarNames = [];
+    for (let lang in countries) {
+        const countryNames = Object.values(countries[lang]);
+        for (let name of countryNames) {
+            if (name.toLowerCase().includes(normalizedIdentifier)) {
+                similarNames.push(name);
+            }
+        }
+    }
+
+    // If similar names were found, return a suggestion
+    if (similarNames.length > 0) {
+        return `Did you mean ${similarNames.join(', ')}?`;
+    } else {
+        return null;
+    }
+}
 
 const countries = loadCountries();
 
 /**
- * Gibt die Flagge und den Namen des Landes anhand des Länderidentifikators zurück.
- * @param {string} countryIdentifier - Der Länderidentifikator.
- * @param {lang} language - Der Länderidentifikator.
- * @returns {{name: string, url: string}|null} Die Flagge und den Namen des Landes oder null, falls der Identifikator ungültig ist.
+ * Returns the flag and name of the country based on the country identifier.
+ * @param {string} countryIdentifier - The country identifier (can be either the country code or the country name).
+ * @param {string} language - The language code for the language of the country (default to English).
+ * @returns {{name: string, code: string, url: string}|null} The flag and name of the country or null if the identifier is invalid.
  */
 function getFlag(countryIdentifier, language = DEFAULT_LANGUAGE) {
+    if (typeof countryIdentifier !== 'string' || /\d/.test(countryIdentifier)) {
+        throw new TypeError('Country identifier must be a non-numeric string');
+    }
     const normalizedIdentifier = countryIdentifier.trim().toLowerCase();
-    const countryName = countries[language][normalizedIdentifier]; // Verwende die Sprache, um das richtige Länderobjekt auszuwählen
-    if (!countryName) return null; 
+    let countryCode = null;
+    if (countries[language][normalizedIdentifier]) {
+        countryCode = normalizedIdentifier;
+    } else {
+        for (let lang in countries) {
+            const countryCodes = Object.keys(countries[lang]);
+            for (let code of countryCodes) {
+                if (countries[lang][code].toLowerCase() === normalizedIdentifier) {
+                    countryCode = code;
+                    break;
+                }
+            }
+            if (countryCode) break;
+        }
+    }
+
+    if (!countryCode) {
+        const suggestion = suggestCountryName(countryIdentifier, language);
+        if (suggestion) {
+            throw new TypeError(`Invalid country: ${countryIdentifier}. ${suggestion}`);
+        } else {
+            throw new TypeError(`Invalid country: ${countryIdentifier}`);
+        }
+    }
+
     return {
-        name: countryName,
-        url: baseUrl + normalizedIdentifier + ".webp"
-        
+        name: countries[language][countryCode],
+        code: countryCode,
+        url: baseUrl + countryCode + ".webp"
     };
 }
 /**
- * Gibt die URL der Flagge eines Landes anhand des Länderidentifikators zurück.
- * @param {string} countryIdentifier - Der Länderidentifikator.
- * @returns {string|null} Die URL der Flagge des Landes oder null, falls der Identifikator ungültig ist.
+ * Returns the URL of a country's flag based on the country identifier.
+ * @param {string} countryIdentifier - The country identifier.
+ * @returns {string|null} The URL of the country's flag or null if the identifier is invalid.
  */
 function getFlagUrl(countryIdentifier) {
+    if (typeof countryIdentifier !== 'string' || /\d/.test(countryIdentifier)) {
+        throw new TypeError('Country identifier must be a non-numeric string');
+    }
     const normalizedIdentifier = countryIdentifier.trim().toLowerCase();
-    const countryName = countrys["en"][normalizedIdentifier];
-    if (!countryName) return null; 
-    return baseUrl + normalizedIdentifier + ".webp";
-}
 
+    let countryName = countries["en"][normalizedIdentifier];
+    if (countryName) {
+        return baseUrl + normalizedIdentifier + ".webp";
+    }
+
+    for (let lang in countries) {
+        const countryCodes = Object.keys(countries[lang]);
+        for (let code of countryCodes) {
+            if (countries[lang][code].toLowerCase() === normalizedIdentifier) {
+                return baseUrl + code + ".webp";
+            }
+        }
+    }
+    const suggestion = suggestCountryName(countryIdentifier);
+    if (suggestion) {
+        throw new TypeError(`Invalid country: ${countryIdentifier}. ${suggestion}`);
+    } else {
+        throw new TypeError(`Invalid country: ${countryIdentifier}`);
+    }
+}
 /**
- * Gibt zufällig eine Flagge und den Namen des Landes zurück.
- * @returns {{name: string, url: string}} Die Flagge und den Namen des Landes.
+ * Returns a random flag and the name of the country.
+ * @param {string} language - The country identifier.
+ * @returns {{name: string, url: string}} The flag and the name of the country.
  */
-function getRandomFlag(lang) {
-    const countryKeys = Object.keys(countries[lang]); // Verwende die Sprache, um das richtige Länderobjekt auszuwählen
+function getRandomFlag(language = DEFAULT_LANGUAGE) {
+    const countryKeys = Object.keys(countries[language]);
     const randomIndex = Math.floor(Math.random() * countryKeys.length);
     const randomCountry = countryKeys[randomIndex];
-    const countryName = countries[lang][randomCountry]; // Auch hier muss die Sprache verwendet werden
+    const countryName = countries[language][randomCountry]; 
     return {
         name: countryName,
+        code: randomCountry,
         url: baseUrl + randomCountry + ".webp"
     };
 }
