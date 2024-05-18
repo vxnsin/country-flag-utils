@@ -15,7 +15,7 @@ npm install country-flag-utils
 In your File:
 
 ```javascript
-const flag = require('flag-list') //Import the Package
+const flag = require('country-flag-utils') //Import the Package
 ```
 
 ### Get Flag

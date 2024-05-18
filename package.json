@@ -1,6 +1,6 @@
 {
-  "name": "@vxnsin/country-flag-utils",
-  "version": "1.2.8",
+  "name": "country-flag-utils",
+  "version": "1.2.9",
   "description": "A NPM Package that allows you to get a list of all Flags in the World.",
   "main": "index.js",
   "repository": {
@@ -25,9 +25,5 @@
   "dependencies": {
     "fs": "^0.0.1-security",
     "path": "^0.12.7"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
   }
 }
