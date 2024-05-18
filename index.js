@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 /**
- * @typedef {Object} Language - Objekt, das die verfügbaren Sprachen enthält.
- * @property {string} GERMAN - Deutsch
+ * @typedef {Object} Language
+ * @property {string} GERMAN - German
  * @property {string} ENGLISH - Englisch
  */
 const Language = {
@@ -19,7 +19,7 @@ function loadCountries() {
     const countries = {};
     files.forEach(file => {
         const filePath = path.join(countriesDir, file);
-        const lang = path.parse(file).name; // Extrahiere die Sprache aus dem Dateinamen
+        const lang = path.parse(file).name; 
         try {
             const data = fs.readFileSync(filePath);
             countries[lang] = JSON.parse(data);
@@ -38,7 +38,6 @@ function loadCountries() {
 function suggestCountryName(countryIdentifier, language = DEFAULT_LANGUAGE) {
     const normalizedIdentifier = countryIdentifier.trim().toLowerCase();
 
-    // Check if the identifier matches any known country names
     const similarNames = [];
     for (let lang in countries) {
         const countryNames = Object.values(countries[lang]);
@@ -49,7 +48,6 @@ function suggestCountryName(countryIdentifier, language = DEFAULT_LANGUAGE) {
         }
     }
 
-    // If similar names were found, return a suggestion
     if (similarNames.length > 0) {
         return `Did you mean ${similarNames.join(', ')}?`;
     } else {
