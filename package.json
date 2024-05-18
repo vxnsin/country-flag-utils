@@ -8,7 +8,13 @@
     "url": "git+https://github.com/vxnsin/country-flag-utils.git"
   },
   "keywords": [
-    "flag", "country", "utils", "flags", "countrys", "language", "multi-language"
+    "flag",
+    "country",
+    "utils",
+    "flags",
+    "countrys",
+    "language",
+    "multi-language"
   ],
   "author": "Vxnsin",
   "license": "ISC",
