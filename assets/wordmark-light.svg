@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 146" width="600" height="146" role="img" aria-label="country-flag-utils">
+  <title>country-flag-utils</title>
+  <g>
+    <rect x="22" y="18" width="6" height="114" rx="3" fill="#9aa3b2"/>
+    <g>
+      <rect x="28" y="24" width="28" height="56" fill="#d1372f"/>
+      <rect x="56" y="24" width="28" height="56" fill="#e8b53a"/>
+      <rect x="84" y="24" width="28" height="56" fill="#2f6fd1"/>
+    </g>
+  </g>
+  <text x="132" y="72"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif"
+        font-size="54" font-weight="700" letter-spacing="-1.2" fill="#0b1220"
+        text-rendering="geometricPrecision">country<tspan fill="#9aa3b2">-</tspan>flag<tspan fill="#9aa3b2">-</tspan>utils</text>
+  <text x="134" y="108"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif"
+        font-size="18" font-weight="600" letter-spacing="2.8" fill="#5b6472"
+        text-rendering="geometricPrecision">ISO 3166-1 · 250 COUNTRIES · FLAG URLS</text>
+</svg>

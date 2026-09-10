@@ -1,8 +1,11 @@
 <div align="center">
 
-<img src="https://www.welt-flaggen.de/data/flags/h40/de.webp" height="26" alt="Germany">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/gb.webp" height="26" alt="United Kingdom">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/jp.webp" height="26" alt="Japan">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/br.webp" height="26" alt="Brazil">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/za.webp" height="26" alt="South Africa">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/in.webp" height="26" alt="India">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/au.webp" height="26" alt="Australia">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/ci.webp" height="26" alt="Côte d'Ivoire">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/kr.webp" height="26" alt="South Korea">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/us.webp" height="26" alt="United States">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vxnsin/country-flag-utils/main/assets/wordmark-dark.svg">
+  <img src="https://raw.githubusercontent.com/vxnsin/country-flag-utils/main/assets/wordmark-light.svg" width="420" alt="country-flag-utils">
+</picture>
 
-# country-flag-utils
+<br>
 
 **Country lookup for Node and the browser.**<br>
 ISO 3166-1 codes, localized names, flag emoji and flag image URLs.
@@ -39,7 +42,13 @@ getFlag('de');
 }
 ```
 
-Every flag above is a URL this package produced.
+<div align="center">
+
+<img src="https://www.welt-flaggen.de/data/flags/h40/de.webp" height="24" alt="Germany">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/gb.webp" height="24" alt="United Kingdom">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/jp.webp" height="24" alt="Japan">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/br.webp" height="24" alt="Brazil">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/za.webp" height="24" alt="South Africa">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/in.webp" height="24" alt="India">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/au.webp" height="24" alt="Australia">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/ci.webp" height="24" alt="Côte d'Ivoire">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/kr.webp" height="24" alt="South Korea">&nbsp;<img src="https://www.welt-flaggen.de/data/flags/h40/us.webp" height="24" alt="United States">
+
+<sub>Every flag here is a URL the package produced.</sub>
+
+</div>
 
 ## Why
 
