@@ -1,6 +1,6 @@
 {
   "name": "country-flag-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Zero-dependency country lookup: ISO 3166-1 codes, localized names, flag emoji and flag image URLs.",
   "type": "module",
   "main": "./dist/index.cjs",
