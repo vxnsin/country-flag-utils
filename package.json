@@ -1,20 +1,62 @@
 {
-  "name": "@vxnsin/country-flag-utils",
-  "version": "1.2.9",
-  "description": "A NPM Package that allows you to get a list of all Flags in the World.",
-  "main": "index.js",
+  "name": "country-flag-utils",
+  "version": "2.0.0",
+  "description": "Zero-dependency country lookup: ISO 3166-1 codes, localized names, flag emoji and flag image URLs.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test",
+    "pretest": "npm run build",
+    "check": "npm run typecheck && npm test",
+    "check:urls": "node scripts/check-flag-urls.mjs",
+    "prepublishOnly": "npm run build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vxnsin/country-flag-utils.git"
   },
   "keywords": [
-    "flag",
     "country",
-    "utils",
+    "countries",
+    "flag",
     "flags",
-    "countrys",
-    "language",
-    "multi-language"
+    "iso-3166",
+    "iso-3166-1",
+    "alpha-2",
+    "alpha-3",
+    "country-codes",
+    "flag-emoji",
+    "i18n",
+    "multi-language",
+    "typescript",
+    "zero-dependency"
   ],
   "author": "Vxnsin",
   "license": "ISC",
@@ -22,12 +64,8 @@
     "url": "https://github.com/vxnsin/country-flag-utils/issues"
   },
   "homepage": "https://github.com/vxnsin/country-flag-utils#readme",
-  "dependencies": {
-    "fs": "^0.0.1-security",
-    "path": "^0.12.7"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
   }
 }
